@@ -18,7 +18,6 @@ VALUES('Peter', 'Figaro','M');
 ALTER TABLE customers
 ALTER COLUMN number_of_complaints DROP DEFAULT;
 
-
 -- exercise
 /*
 Recreate the “companies” table
