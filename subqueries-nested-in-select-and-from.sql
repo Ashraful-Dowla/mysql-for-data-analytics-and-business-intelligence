@@ -90,10 +90,14 @@ Good luck!
 
 -- solution 2
 
+INSERT INTO emp_manager
 SELECT 
-    A.*
+    U.*
 FROM
     (SELECT 
+        A.*
+    FROM
+        (SELECT 
         e.emp_no AS employee_ID,
             MIN(de.dept_no) AS department_code,
             (SELECT 
@@ -108,11 +112,10 @@ FROM
     WHERE
         e.emp_no <= 10020
     GROUP BY e.emp_no
-    ORDER BY e.emp_no) AS A 
-UNION SELECT 
-    B.*
-FROM
-    (SELECT 
+    ORDER BY e.emp_no) AS A UNION SELECT 
+        B.*
+    FROM
+        (SELECT 
         e.emp_no AS employee_ID,
             MIN(de.dept_no) AS department_code,
             (SELECT 
@@ -127,11 +130,10 @@ FROM
     WHERE
         e.emp_no BETWEEN 10021 AND 10040
     GROUP BY e.emp_no
-    ORDER BY e.emp_no) AS B 
-UNION SELECT 
-    C.*
-FROM
-    (SELECT 
+    ORDER BY e.emp_no) AS B UNION SELECT 
+        C.*
+    FROM
+        (SELECT 
         e.emp_no AS employee_ID,
             MIN(de.dept_no) AS department_code,
             (SELECT 
@@ -146,11 +148,10 @@ FROM
     WHERE
         e.emp_no = 110022
     GROUP BY e.emp_no
-    ORDER BY e.emp_no) AS C 
-UNION SELECT 
-    D.*
-FROM
-    (SELECT 
+    ORDER BY e.emp_no) AS C UNION SELECT 
+        D.*
+    FROM
+        (SELECT 
         e.emp_no AS employee_ID,
             MIN(de.dept_no) AS department_code,
             (SELECT 
@@ -165,4 +166,4 @@ FROM
     WHERE
         e.emp_no = 110039
     GROUP BY e.emp_no
-    ORDER BY e.emp_no) AS D;
+    ORDER BY e.emp_no) AS D) AS U;
