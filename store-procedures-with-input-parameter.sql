@@ -30,7 +30,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-call employees.employee_avg_salary(11300);
+call employees.emp_avg_salary(11300);
 
 
 
